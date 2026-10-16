@@ -44,7 +44,7 @@ pub trait Connector: Send + Sync + Unpin + 'static {
 
     async fn release_http_session<P: Peer + Send + Sync + 'static>(
         &self,
-        mut session: Self::Session,
+        session: Self::Session,
         peer: &P,
         idle_timeout: Option<Duration>,
     );
