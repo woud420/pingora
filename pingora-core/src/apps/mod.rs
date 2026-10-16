@@ -54,7 +54,7 @@ where
     /// signal to shutdown. This argument allows the application to react accordingly.
     async fn process_new(
         self: &Arc<Self>,
-        mut session: Stream,
+        session: Stream,
         // TODO: make this ShutdownWatch so that all task can await on this event
         shutdown: &ShutdownWatch,
     ) -> Option<Stream>;
@@ -237,7 +237,7 @@ where
     /// a `None` should be returned.
     async fn process_new_http(
         self: &Arc<Self>,
-        mut session: ServerSession<DS>,
+        session: ServerSession<DS>,
         // TODO: make this ShutdownWatch so that all task can await on this event
         shutdown: &ShutdownWatch,
     ) -> Option<ReusedHttpStream>;
